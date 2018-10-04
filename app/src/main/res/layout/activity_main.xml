@@ -29,10 +29,11 @@
         android:layout_marginTop="24dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/home_image"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Picture1" />
+        app:srcCompat="@drawable/picture1" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,7 +74,7 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
