@@ -1,5 +1,7 @@
 package com.github.borderlander103.higherorlower;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,22 +36,39 @@ public class MainActivity extends AppCompatActivity {
 
         String mGuessString = mGuessView.getText().toString();
 
-        int mGuessInt = Integer.parseInt(mGuessString);
+        if(mGuessString != null && !mGuessString.isEmpty()) {
 
-        Log.i("Value", Integer.toString(mGuessInt));
+            int mGuessInt = Integer.parseInt(mGuessString);
 
-        String message;
+            Log.i("Value", Integer.toString(mGuessInt));
 
-        if (mGuessInt > mRandom) {
-            message = "Lower";
-        } else if (mGuessInt < mRandom){
-            message = "Higher";
-        } else {
-            message = "Just Right";
+            String message ="";
+
+            if (mGuessInt > mRandom) {
+                message = "Lower";
+            } else if (mGuessInt < mRandom) {
+                message = "Higher";
+            } else {
+//                message = "Just Right";
+                showDialog();
+                mGuessView.setText("");
+                randomNumber();
+            }
+
+            if (!message.isEmpty()) {Toast.makeText(this, message, Toast.LENGTH_SHORT).show(); }
         }
 
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
+    public void showDialog() {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage("You guessed right! \n\nHave another go.");
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.create().show();
     }
 
 }
