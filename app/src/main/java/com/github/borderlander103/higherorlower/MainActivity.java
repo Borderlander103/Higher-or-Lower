@@ -34,21 +34,24 @@ public class MainActivity extends AppCompatActivity {
 
         String mGuessString = mGuessView.getText().toString();
 
-        int mGuessInt = Integer.parseInt(mGuessString);
+        if(mGuessString != null && !mGuessString.isEmpty()) {
 
-        Log.i("Value", Integer.toString(mGuessInt));
+            int mGuessInt = Integer.parseInt(mGuessString);
 
-        String message;
+            Log.i("Value", Integer.toString(mGuessInt));
 
-        if (mGuessInt > mRandom) {
-            message = "Lower";
-        } else if (mGuessInt < mRandom){
-            message = "Higher";
-        } else {
-            message = "Just Right";
+            String message;
+
+            if (mGuessInt > mRandom) {
+                message = "Lower";
+            } else if (mGuessInt < mRandom) {
+                message = "Higher";
+            } else {
+                message = "Just Right";
+            }
+
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
-
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
     }
 
