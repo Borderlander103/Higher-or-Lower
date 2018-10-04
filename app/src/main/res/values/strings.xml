@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Higher or Lower</string>
     <string name="home_image">Name of the game.</string>
-    <string name="welcome_text">I\'m thinking of a number between 1 and 10.</string>
+    <string name="welcome_text">I\'m thinking of a number between 1 and 20.</string>
     <string name="question">Can you guess it?</string>
     <string name="number_hint">\?</string>
     <string name="button">Guess</string>
