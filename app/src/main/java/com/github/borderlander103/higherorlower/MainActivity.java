@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -12,11 +13,21 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int mRandom;
+    private TextView lowerBoundTv;
+    private TextView upperBoundTv;
+    private TextView justRightTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lowerBoundTv = findViewById(R.id.number_from_tv);
+        upperBoundTv = findViewById(R.id.number_to_tv);
+        justRightTv = findViewById(R.id.just_right_tv);
+
+        lowerBoundTv.setText(String.valueOf(1));
+        upperBoundTv.setText(String.valueOf(20));
+
 
         randomNumber();
     }
@@ -38,17 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("Value", Integer.toString(mGuessInt));
 
-        String message;
-
         if (mGuessInt > mRandom) {
-            message = "Lower";
+            if (mGuessInt < Integer.parseInt(upperBoundTv.getText().toString()))
+                upperBoundTv.setText(String.valueOf(mGuessInt));
+
         } else if (mGuessInt < mRandom){
-            message = "Higher";
+            if (mGuessInt > Integer.parseInt(lowerBoundTv.getText().toString()))
+                lowerBoundTv.setText(String.valueOf(mGuessInt));
         } else {
-            message = "Just Right";
+            justRightTv.setVisibility(View.VISIBLE);
         }
 
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
 
     }
 

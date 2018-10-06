@@ -5,4 +5,7 @@
     <string name="question">Can you guess it?</string>
     <string name="number_hint">\?</string>
     <string name="button">Guess</string>
+    <string name="string_textView_to">To</string>
+    <string name="string_textView_from">From</string>
+    <string name="just_right_string">Just right!</string>
 </resources>
