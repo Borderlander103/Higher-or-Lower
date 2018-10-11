@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (mGuessInt < mRandom){
             message = "Higher";
         } else {
-            message = "Just Right";
+            message = "Just Right. Try again!";
+            randomNumber();
         }
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
